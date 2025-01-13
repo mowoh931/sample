@@ -108,6 +108,10 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<finalName>
+			${project.name}
+		</finalName>
 	</build>
 
 	<distributionManagement>

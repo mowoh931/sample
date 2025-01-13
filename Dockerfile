@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the project's JAR file into the container at /app
-COPY target/sample-0.0.1-SNAPSHOT.jar app.jar
+COPY target/sample.jar app.jar
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
