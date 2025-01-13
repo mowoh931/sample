@@ -110,4 +110,24 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+
+		<repository>
+			<id>github</id>
+            <name>GitHub mowoh931 Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/mowoh931/sample</url>
+		</repository>
+	</distributionManagement>
+
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub mowoh931 Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/mowoh931/sample</url>
+        </repository>
+    </repositories>
+
+
+
 </project>
