@@ -110,7 +110,7 @@
 		</plugins>
 
 		<finalName>
-			${project.name}
+			${project.name}-app
 		</finalName>
 	</build>
 

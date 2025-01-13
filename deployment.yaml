@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-deployment
+spec:
+  replicas: 1 # Start with one replica, scale up as needed
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+      - name: sample-app
+        image: mowoh/sample-app:latest # Replace with your actual image repository and tag
+        ports:
+        - containerPort: 8080 # Matches the EXPOSE port in Dockerfile
+        resources: # Resource limits and requests (optional but recommended)
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 256Mi
+        livenessProbe:  # Check if the application is running
+          httpGet:
+            path: /actuator/health/liveness # Use Spring Boot Actuator's liveness probe
+            port: 8080
+          initialDelaySeconds: 60 # Delay before the first probe
+          periodSeconds: 10      # Probe every 10 seconds
+        readinessProbe: # Check if the application is ready to serve traffic
+          httpGet:
+            path: /actuator/health/readiness # Use Spring Boot Actuator's readiness probe
+            port: 8080
+          initialDelaySeconds: 60 # Delay before the first probe
+          periodSeconds: 10      # Probe every 10 seconds
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-app-service
+spec:
+  selector:
+    app: sample-app
+  ports:
+  - protocol: TCP
+    port: 80  # External port users will connect to
+    targetPort: 8080 # Port the application listens on inside the container
+  type: LoadBalancer # Exposes the service externally
