@@ -15,7 +15,7 @@ public class SampleApplication {
 
 	@GetMapping("/test")
 	public String test() {
-		return "Test";
+		return "Test.....";
 	}
 
 	public static void main(String[] args) {
