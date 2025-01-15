@@ -33,7 +33,7 @@ commands:
     exec:
       component: maven
       commandLine: "mvn clean package -DskipTests"
-      workingDir: /projects
+      workingDir: /sample
       group:
         kind: build
         isDefault: true
@@ -41,7 +41,7 @@ commands:
     exec:
       component: runtime
       commandLine: "java -jar target/*.jar"
-      workingDir: /projects
+      workingDir: /sample
       group:
         kind: run
         isDefault: true
