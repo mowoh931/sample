@@ -118,7 +118,8 @@
 		</plugins>
 
 		<finalName>
-			${project.name}-app
+<!--			${project.name}-app-->
+			sample-app
 		</finalName>
 	</build>
 
