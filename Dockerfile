@@ -13,7 +13,7 @@
 ## Run the JAR file
 #ENTRYPOINT ["java", "-jar", "app.jar"]
 
- Use a Maven image as the base for the build stage
+# Use a Maven image as the base for the build stage
 FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
 COPY pom.xml .
