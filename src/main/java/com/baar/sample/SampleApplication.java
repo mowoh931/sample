@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class SampleApplication {
-	@GetMapping("/")
-	public String hello() {
-		return "Hello World!";
-	}
+    @GetMapping("/")
+    public String hello() {
+        return "Hello World!";
+    }
 
-	@GetMapping("/test")
-	public String test() {
-		return "Test.....";
-	}
+    @GetMapping("/test")
+    public String test() {
+        return "Test.....";
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(SampleApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SampleApplication.class, args);
+    }
 
 }
