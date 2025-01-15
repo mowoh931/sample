@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 # Copy the project's JAR file into the container at /app
-COPY target/sample-app.jar /app/app.jar
+COPY /app/target/sample-app.jar /app/app.jar
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
