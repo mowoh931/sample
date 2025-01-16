@@ -44,6 +44,6 @@ commands:
       group:
         kind: run
         isDefault: true
-  - id: deploy
-    apply:
-      component: maven
+#   - id: deploy
+#     apply:
+#       component: sample-app-image
