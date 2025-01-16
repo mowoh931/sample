@@ -22,11 +22,11 @@ components:
         - -c
         - |
           while true; do sleep 30; done;
-  - name: sample-app-image
-    image:
+#   - name: sample-app-image
+#     image:
 #       imageName: mowoh/sample-app:latest
-      dockerfile:
-        uri: ./Dockerfile
+#       dockerfile:
+#         uri: ./Dockerfile
 commands:
   - id: build
     exec:
