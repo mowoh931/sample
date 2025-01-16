@@ -22,9 +22,11 @@ components:
         - -c
         - |
           while true; do sleep 30; done;
-#       endpoints:
-#         - name: maven
-#           targetPort: 8080
+  - name: sample-app-image
+    image:
+      imageName: mowoh/sample-app:latest
+      dockerfile:
+        uri: ./Dockerfile
 commands:
   - id: build
     exec:
@@ -42,3 +44,6 @@ commands:
       group:
         kind: run
         isDefault: true
+  - id: deploy
+    apply:
+      component: sample-app-image
