@@ -12,9 +12,9 @@ components:
       endpoints:
         - name: http
           targetPort: 8080
-      volumes:
-        - name: maven-repo
-          containerPath: /home/user/.m2
+#       volumes:
+#         - name: maven-repo
+#           containerPath: /home/user/.m2
   - name: runtime
     container:
       image: openjdk:17-jdk-alpine
@@ -25,9 +25,9 @@ components:
       endpoints:
         - name: http
           targetPort: 8080
-      volumes:
-        - name: maven-repo
-          containerPath: /home/user/.m2
+#       volumes:
+#         - name: maven-repo
+#           containerPath: /home/user/.m2
 commands:
   - id: build
     exec:
