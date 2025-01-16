@@ -24,7 +24,7 @@ components:
           while true; do sleep 30; done;
   - name: sample-app-image
     image:
-      imageName: mowoh/sample-app:latest
+#       imageName: mowoh/sample-app:latest
       dockerfile:
         uri: ./Dockerfile
 commands:
