@@ -45,6 +45,6 @@ commands:
       group:
         kind: run
         isDefault: true
-volumes:
-  - name: maven-repo
-    size: 1Gi
+# volumes:
+#   - name: maven-repo
+#     size: 1Gi
