@@ -46,4 +46,4 @@ commands:
         isDefault: true
   - id: deploy
     apply:
-      component: sample-app-image
+      component: maven
