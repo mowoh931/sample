@@ -9,9 +9,9 @@ components:
       image: quay.io/eclipse/che-java11-maven:nightly
       memoryLimit: 512Mi
       mountSources: true
-#       endpoints:
-#         - name: http
-#           targetPort: 8080
+      endpoints:
+        - name: http
+          targetPort: 8080
   - name: maven
     container:
       image: maven:3.8.5-openjdk-17
@@ -22,9 +22,9 @@ components:
         - -c
         - |
           while true; do sleep 30; done;
-      endpoints:
-        - name: maven
-          targetPort: 8080
+#       endpoints:
+#         - name: maven
+#           targetPort: 8080
 commands:
   - id: build
     exec:
