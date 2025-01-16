@@ -1,8 +1,11 @@
 schemaVersion: 2.1.0
 metadata:
   name: sample-app
-  version: 1.0.0
-  description: Devfile for Sample Spring Boot Application
+projects:
+  - name: sample-app
+    source:
+      type: git
+      location: "https://github.com/mowoh931/sample.git"
 components:
   - name: tools
     container:
@@ -10,40 +13,29 @@ components:
       memoryLimit: 512Mi
       mountSources: true
       endpoints:
-        - name: http
+        - name: http-8080
           targetPort: 8080
-  - name: maven
+  - name: sample-app
     container:
-      image: maven:3.8.5-openjdk-17
+      image: openjdk:17-jdk-alpine
       memoryLimit: 512Mi
       mountSources: true
-      command:
-        - /bin/sh
-        - -c
-        - |
-          while true; do sleep 30; done;
-#   - name: sample-app-image
-#     image:
-#       imageName: mowoh/sample-app:latest
-#       dockerfile:
-#         uri: ./Dockerfile
+      command: ["sh", "-c"]
+      args: ["mvn clean install && java -jar target/sample-app-0.0.1-SNAPSHOT.jar"]
+      endpoints:
+        - name: http-8080
+          targetPort: 8080
 commands:
   - id: build
     exec:
-      component: maven
-      commandLine: "mvn clean package -DskipTests"
-      workingDir: /projects
-      group:
-        kind: build
-        isDefault: true
+      component: tools
+      commandLine: "mvn clean install"
+      workingDir: "/projects/sample-app"
   - id: run
     exec:
-      component: maven
-      commandLine: "java -jar target/sample-app.jar"
-      workingDir: /projects
+      component: sample-app
+      commandLine: "java -jar target/sample-app-0.0.1-SNAPSHOT.jar"
+      workingDir: "/projects/sample-app"
       group:
         kind: run
         isDefault: true
-#   - id: deploy
-#     apply:
-#       component: sample-app-image
