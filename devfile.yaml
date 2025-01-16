@@ -22,9 +22,9 @@ components:
       mountSources: true
       command: ["sh", "-c"]
       args: ["mvn clean package -DskipTests && java -jar target/*.jar"]
-      endpoints:
-        - name: http
-          targetPort: 8080
+#       endpoints:
+#         - name: http
+#           targetPort: 8080
 #       volumes:
 #         - name: maven-repo
 #           containerPath: /home/user/.m2
