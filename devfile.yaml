@@ -9,9 +9,9 @@ components:
       image: quay.io/eclipse/che-java11-maven:nightly
       memoryLimit: 512Mi
       mountSources: true
-      endpoints:
-        - name: http
-          targetPort: 8080
+#       endpoints:
+#         - name: http
+#           targetPort: 8080
 #       volumes:
 #         - name: maven-repo
 #           containerPath: /home/user/.m2
@@ -22,9 +22,9 @@ components:
       mountSources: true
       command: ["sh", "-c"]
       args: ["mvn clean package -DskipTests && java -jar target/*.jar"]
-#       endpoints:
-#         - name: http
-#           targetPort: 8080
+      endpoints:
+        - name: http
+          targetPort: 8080
 #       volumes:
 #         - name: maven-repo
 #           containerPath: /home/user/.m2
