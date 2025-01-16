@@ -2,49 +2,43 @@ schemaVersion: 2.1.0
 metadata:
   name: sample-app
   version: 1.0.0
-  description: Spring Boot application deployment on OpenShift
+  description: Devfile for Sample Spring Boot Application
 components:
-  - name: maven
+  - name: tools
     container:
       image: quay.io/eclipse/che-java11-maven:nightly
       memoryLimit: 512Mi
       mountSources: true
-#       endpoints:
-#         - name: http
-#           targetPort: 8080
-#       volumes:
-#         - name: maven-repo
-#           containerPath: /home/user/.m2
-  - name: runtime
-    container:
-      image: openjdk:17-jdk-alpine
-      memoryLimit: 512Mi
-      mountSources: true
-      command: ["sh", "-c"]
-      args: ["mvn clean package -DskipTests && java -jar target/*.jar"]
       endpoints:
         - name: http
           targetPort: 8080
-#       volumes:
-#         - name: maven-repo
-#           containerPath: /home/user/.m2
+  - name: maven
+    container:
+      image: maven:3.8.5-openjdk-17
+      memoryLimit: 512Mi
+      mountSources: true
+      command:
+        - /bin/sh
+        - -c
+        - |
+          while true; do sleep 30; done;
+      endpoints:
+        - name: maven
+          targetPort: 8080
 commands:
   - id: build
     exec:
       component: maven
       commandLine: "mvn clean package -DskipTests"
-      workingDir: /sample
+      workingDir: /projects
       group:
         kind: build
         isDefault: true
   - id: run
     exec:
-      component: runtime
-      commandLine: "java -jar target/*.jar"
-      workingDir: /sample
+      component: maven
+      commandLine: "java -jar target/sample-app.jar"
+      workingDir: /projects
       group:
         kind: run
         isDefault: true
-# volumes:
-#   - name: maven-repo
-#     size: 1Gi
