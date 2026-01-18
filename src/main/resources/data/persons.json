@@ -1,0 +1,62 @@
+[
+    {
+      "userId": 1,
+      "lastName": "Smith",
+      "firstName": "John",
+      "city": "New York"
+    },
+    {
+      "userId": 2,
+      "lastName": "Johnson",
+      "firstName": "Emma",
+      "city": "Los Angeles"
+    },
+    {
+      "userId": 3,
+      "lastName": "Williams",
+      "firstName": "Michael",
+      "city": "Chicago"
+    },
+    {
+      "userId": 4,
+      "lastName": "Brown",
+      "firstName": "Sophia",
+      "city": "Houston"
+    },
+    {
+      "userId": 5,
+      "lastName": "Jones",
+      "firstName": "James",
+      "city": "Phoenix"
+    },
+    {
+      "userId": 6,
+      "lastName": "Garcia",
+      "firstName": "Isabella",
+      "city": "Philadelphia"
+    },
+    {
+      "userId": 7,
+      "lastName": "Miller",
+      "firstName": "William",
+      "city": "San Antonio"
+    },
+    {
+      "userId": 8,
+      "lastName": "Davis",
+      "firstName": "Olivia",
+      "city": "San Diego"
+    },
+    {
+      "userId": 9,
+      "lastName": "Rodriguez",
+      "firstName": "Alexander",
+      "city": "Dallas"
+    },
+    {
+      "userId": 10,
+      "lastName": "Martinez",
+      "firstName": "Ava",
+      "city": "San Jose"
+    }
+  ]
